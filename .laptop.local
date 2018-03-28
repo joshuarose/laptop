@@ -42,6 +42,16 @@ if [ -r "$HOME/.rcrc" ]; then
   rcup
 fi
 
+npm install -g jshint
+npm install -g eslint
+npm install -g tslint
+
+# Setup powerline fonts
+rm -rf ~/fonts
+git clone https://github.com/powerline/fonts.git --depth=1
+cd ~/fonts
+./install.sh
+
 # Remove default icons from Dock
 defaults delete com.apple.dock persistent-apps
 defaults delete com.apple.dock persistent-others
