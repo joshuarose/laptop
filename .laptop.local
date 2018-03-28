@@ -1,1 +1,59 @@
+#!/bin/sh
 
+brew bundle --file=- <<EOF
+tap "caskroom/fonts"
+brew "go"
+brew "erlang"
+brew "elixir"
+brew "chromedriver"
+brew "rbenv"
+brew "ruby-build"
+brew "zsh-completions"
+brew "readline"
+brew "xz"
+brew "fzf"
+brew "ack"
+brew "tree"
+brew "python"
+brew "pyenv"
+brew "gradle"
+cask "google-chrome"
+cask "visual-studio-code"
+cask "skitch"
+cask "sketch"
+cask "iterm2"
+cask "docker"
+cask "java"
+cask "font-source-code-pro"
+cask "inconsolata-dz-for-powerline"
+cask "imageoptim"
+cask "firefox"
+cask "dash"
+cask "slack"
+cask "spotify"
+cask "android-studio"
+EOF
+
+fancy_echo "Cleaning up old Homebrew formulae ..."
+brew cleanup
+brew cask cleanup
+
+if [ -r "$HOME/.rcrc" ]; then
+  fancy_echo "Updating dotfiles ..."
+  rcup
+fi
+
+# Remove default icons from Dock
+defaults delete com.apple.dock persistent-apps
+defaults delete com.apple.dock persistent-others
+defaults write com.apple.dock pinning -string end
+defaults write com.apple.Dock autohide-delay -float 0
+defaults write com.apple.Dock autohide -bool TRUE
+defaults write NSGlobalDomain KeyRepeat -int 0.02
+defaults write NSGlobalDomain InitialKeyRepeat -int 12
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
+defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
+defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
+defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.volume" -int 0
+killall Dock
