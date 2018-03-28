@@ -31,7 +31,6 @@ cask "firefox"
 cask "dash"
 cask "slack"
 cask "spotify"
-cask "android-studio"
 EOF
 
 fancy_echo "Cleaning up old Homebrew formulae ..."
