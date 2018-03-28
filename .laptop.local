@@ -52,6 +52,32 @@ git clone https://github.com/powerline/fonts.git --depth=1
 cd ~/fonts
 ./install.sh
 
+# Setup visual studio code extensions
+code --install-extension lukehoban.Go
+code --install-extension dzannotti.vscode-babel-coloring
+code --install-extension kamikillerto.vscode-colorize
+code --install-extension ms-vscode.cpptools
+code --install-extension msjsdiag.debugger-for-chrome
+code --install-extension PeterJausovec.vscode-docker
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension casualjim.gotemplate
+code --install-extension Zignd.html-css-class-completion
+code --install-extension robertohuertasm.vscode-icons
+code --install-extension mjmcloug.vscode-elixir
+code --install-extension octref.vetur
+code --install-extension eg2.tslint
+code --install-extension robinbentley.sass-indented
+code --install-extension castwide.solargraph
+code --install-extension rebornix.ruby
+code --install-extension vsmobile.vscode-react-native
+code --install-extension ms-python.python
+code --install-extension esbenp.prettier-vscode
+code --install-extension passionkind.prettier-vscode-with-tabs
+code --install-extension zhuangtongfa.material-theme
+code --install-extension eriklynd.json-tools
+code --install-extension
+code --install-extension
+
 # Remove default icons from Dock
 defaults delete com.apple.dock persistent-apps
 defaults delete com.apple.dock persistent-others
